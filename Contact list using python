@@ -1,0 +1,44 @@
+contacts = []
+def add_contact():
+    name = input("Name: ")
+    phone = input("Phone: ")
+    contacts.append([name, phone])
+    print("Contact Added!\n")
+def view_contacts():
+    if contacts == []:
+        print("No contacts.\n")
+    else:
+        for c in contacts:
+            print("Name:", c[0], "Phone:", c[1])
+        print()
+def search_contact():
+    name = input("Enter name to search: ")
+    for c in contacts:
+        if c[0].lower() == name.lower():
+            print("Found:", c[0], "-", c[1])
+            return
+    print("Not found.\n")
+def delete_contact():
+    name = input("Enter name to delete: ")
+    for c in contacts:
+        if c[0].lower() == name.lower():
+            contacts.remove(c)
+            print("Deleted!\n")
+            return
+    print("Not found.\n")
+while True:
+    print("1.Add  2.View  3.Search  4.Delete  5.Exit")
+    choice = input("Choose: ")
+
+    if choice == "1":
+        add_contact()
+    elif choice == "2":
+        view_contacts()
+    elif choice == "3":
+        search_contact()
+    elif choice == "4":
+        delete_contact()
+    elif choice == "5":
+        break
+    else:
+        print("Invalid choice\n")
